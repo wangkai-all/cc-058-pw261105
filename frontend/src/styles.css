@@ -1,0 +1,162 @@
+:root {
+  --border: #d9dde3;
+  --muted: #6b7280;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --bg: #f3f5f8;
+  --card: #ffffff;
+  --danger: #dc2626;
+  --warn: #b45309;
+  --ok: #15803d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: #1f2937;
+  font-size: 14px;
+}
+
+.page { max-width: 1280px; margin: 0 auto; padding: 24px 20px 48px; }
+
+header h1 { margin: 0 0 8px; font-size: 24px; }
+
+.assumptions {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 8px;
+  padding: 10px 14px;
+  line-height: 1.7;
+  margin: 0 0 20px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 18px;
+}
+
+@media (max-width: 980px) {
+  .layout { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.card h3 { margin: 0 0 12px; font-size: 16px; }
+.card h4 { margin: 16px 0 8px; font-size: 14px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+}
+
+label { display: flex; flex-direction: column; font-size: 12px; color: var(--muted); gap: 4px; }
+
+input, select {
+  padding: 7px 9px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 13px;
+  background: #fff;
+  color: #111827;
+}
+
+input:focus, select:focus { outline: 2px solid #bfdbfe; border-color: var(--primary); }
+
+button {
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 7px 14px;
+  font-size: 13px;
+}
+
+button.primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+  margin-top: 12px;
+}
+button.primary:hover { background: var(--primary-dark); }
+button.primary:disabled { opacity: 0.6; cursor: wait; }
+
+.big-btn { padding: 10px 22px; font-size: 15px; margin-top: 0; }
+
+button.link {
+  border: none; background: none; color: var(--primary);
+  padding: 2px 4px;
+}
+
+table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+th, td {
+  text-align: left;
+  padding: 7px 8px;
+  border-bottom: 1px solid #eef0f3;
+  font-size: 13px;
+}
+th { color: var(--muted); font-weight: 600; }
+tr.inactive { opacity: 0.45; }
+
+.muted { color: var(--muted); }
+.error { color: var(--danger); font-size: 13px; margin: 8px 0; }
+.global-error {
+  background: #fef2f2; border: 1px solid #fecaca;
+  border-radius: 8px; padding: 10px 14px;
+}
+
+.tabs, .plan-tabs, .box-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.tabs button, .plan-tabs button, .box-tabs button { padding: 8px 14px; }
+.tabs button.active, .plan-tabs button.active, .box-tabs button.active {
+  background: var(--primary); color: #fff; border-color: var(--primary);
+}
+.tab-fee { font-size: 12px; opacity: 0.85; margin-top: 2px; }
+
+.solve-bar { display: flex; align-items: flex-end; gap: 16px; justify-content: space-between; }
+.solve-bar label { min-width: 140px; }
+
+.validator { padding: 10px 14px; border-radius: 8px; margin-bottom: 12px; font-weight: 600; }
+.validator.ok { background: #f0fdf4; border: 1px solid #bbf7d0; color: var(--ok); }
+.validator.bad { background: #fef2f2; border: 1px solid #fecaca; color: var(--danger); }
+
+.warnings {
+  background: #eff6ff; border: 1px solid #bfdbfe;
+  border-radius: 8px; padding: 10px 14px; margin-bottom: 12px;
+  line-height: 1.7;
+}
+
+.unpacked { margin: 12px 0; }
+.badge { padding: 3px 8px; border-radius: 999px; font-size: 12px; white-space: nowrap; }
+.badge.bad { background: #fee2e2; color: var(--danger); }
+.badge.warn { background: #fef3c7; color: var(--warn); }
+
+.summary-row {
+  display: flex; gap: 28px; flex-wrap: wrap;
+  padding: 12px 4px; border-bottom: 1px solid #eef0f3; margin-bottom: 12px;
+}
+.big { font-size: 22px; color: var(--primary); }
+
+.viewer-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 14px;
+}
+@media (max-width: 980px) { .viewer-layout { grid-template-columns: 1fr; } }
+
+.fee-detail { margin-bottom: 0; }
+.total-row td { font-weight: 700; background: #f8fafc; }
+
+.compact-form { border-top: 1px solid var(--border); margin-top: 14px; padding-top: 12px; }
+
+footer { margin-top: 24px; line-height: 1.7; font-size: 12px; }
